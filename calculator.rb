@@ -24,6 +24,14 @@ class Calculator
   def power(number, exponent)
     return number ** exponent
   end
+
+  def percent(number)
+    return number * 0.01
+  end
+
+  def negate(number)
+    return number * -1
+  end
 end
 
 RSpec.describe Calculator do
@@ -60,10 +68,28 @@ RSpec.describe Calculator do
       expect(result).to eq(9)
     end
     # power
-    it "should work with negative numbers" do
+    it "should produce the power of one number on another" do
       calculator = Calculator.new
       result = calculator.power(5, 2)
       expect(result).to eq(25)
+    end
+    # percent
+    it "should convert an whole number to a percentage" do
+      calculator = Calculator.new
+      result = calculator.percent(8)
+      expect(result).to eq(0.08)
+    end
+    # negative
+    it "should convert a number to its opposite sign" do
+      calculator = Calculator.new
+      result = calculator.negate(1)
+      expect(result).to eq(-1)
+    end
+    # negative
+    it "should convert an whole number to a percentage" do
+      calculator = Calculator.new
+      result = calculator.negate(1)
+      expect(result).to eq(-1)
     end
   end
 end
